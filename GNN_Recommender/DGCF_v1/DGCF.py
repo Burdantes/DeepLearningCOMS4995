@@ -15,8 +15,7 @@ import sys
 import random as rd
 import pickle
 import numpy as np
-
-
+from time import time
 
 tf.compat.v1.disable_eager_execution()
 
@@ -122,7 +121,7 @@ class GDCF(object):
     def _init_weights(self):
         all_weights = dict()
 
-        initializer = tf.contrib.layers.xavier_initializer()
+        initializer = tf.keras.initializers.glorot_normal()
 
         if self.pretrain_data is None:
             all_weights['user_embedding'] = tf.Variable(initializer([self.n_users, self.emb_dim]),
@@ -255,7 +254,7 @@ class GDCF(object):
         all_embeddings = tf.reduce_mean(all_embeddings, axis=1, keepdims=False)
 
         all_embeddings_t = tf.stack(all_embeddings_t, 1)
-        all_embeddings_t = tf.reduce_mean(all_embeddings_t, axis=1, keep_dims=False)
+        all_embeddings_t = tf.reduce_mean(all_embeddings_t, axis=1, keepdims=False)
 
         u_g_embeddings, i_g_embeddings = tf.split(all_embeddings, [self.n_users, self.n_items], 0)
         u_g_embeddings_t, i_g_embeddings_t = tf.split(all_embeddings_t, [self.n_users, self.n_items], 0)
@@ -379,8 +378,8 @@ class GDCF(object):
             # get the degree values of A_i_tensor
             # .... D_i_scores_col is [n_users+n_items, 1]
             # .... D_i_scores_row is [1, n_users+n_items]
-            D_i_col_scores = 1/tf.math.sqrt(tf.sparse_reduce_sum(A_i_tensor, axis=1))
-            D_i_row_scores = 1/tf.math.sqrt(tf.sparse_reduce_sum(A_i_tensor, axis=0))
+            D_i_col_scores = 1/tf.math.sqrt(tfv1.sparse_reduce_sum(A_i_tensor, axis=1))
+            D_i_row_scores = 1/tf.math.sqrt(tfv1.sparse_reduce_sum(A_i_tensor, axis=0))
 
             # couple the laplacian values with the adjacency indices
             # .... A_i_tensor is a sparse tensor with size of [n_users+n_items, n_users+n_items]

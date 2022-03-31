@@ -34,7 +34,7 @@ def parse_args():
     parser.add_argument('--embed_size', type=int, default=64,
                         help='Embedding size.')
     parser.add_argument('--layer_size', nargs='?', default='[64]',
-                        help='Output sizes of every layer')
+                        help='Outputs sizes of every layer')
     parser.add_argument('--batch_size', type=int, default=1024,
                         help='Batch size.')
     parser.add_argument('--lr', type=float, default=0.01,
