@@ -263,6 +263,5 @@ class Data(object):
                 split_state.append(state)
                 print(state)
 
-
-
         return split_uids, split_state
+
