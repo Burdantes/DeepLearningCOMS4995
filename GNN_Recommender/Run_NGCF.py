@@ -2,7 +2,6 @@
 Pytorch Implementation of Neural Graph Collaborative Filtering (NGCF) (https://doi.org/10.1145/3331184.3331267)
 Run this file in terminal with arguments, per example:
 >> run.py --dataset Gowella --emb_dim 64 --layers [64]
-authors: Mohammed Yusuf Noor, Muhammed Imran Özyar, Calin Vasile Simon
 '''
 
 import pandas as pd
@@ -23,11 +22,12 @@ from NGCF_Pytorch import NGCF
 
 use_cuda = torch.cuda.is_available()
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-# torch.cuda.set_device(0)
+torch.cuda.set_device(0)
 
 if __name__ == '__main__':
 
     # read parsed arguments
+
     args = parse_args()
     data_dir = args.data_dir
     dataset = args.dataset

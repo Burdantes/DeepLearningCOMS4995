@@ -13,7 +13,7 @@ def parse_args():
     parser.add_argument('--data_dir', type=str,
                         default='./data/',
                         help='Input data path.')
-    parser.add_argument('--dataset', type=str, default='Gowella',
+    parser.add_argument('--dataset', type=str, default='ml-100k',
                         help='Dataset name: Amazond-book, Gowella, ml-100k')
     parser.add_argument('--results_dir', type=str, default='results',
                         help='Store model to path.')

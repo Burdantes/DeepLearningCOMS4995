@@ -12,7 +12,9 @@ import scipy.sparse as sp
 
 from torch import nn
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda")
+
+# use_cuda = torch.cuda.is_available()
 
 
 class NGCF(nn.Module):

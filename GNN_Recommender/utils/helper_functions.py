@@ -94,8 +94,7 @@ def compute_ndcg_k(pred_items, test_items, test_indices, k):
     NDCG@k
     """
     r = (test_items * pred_items).gather(1, test_indices)
-    f = torch.from_numpy(np.log2(np.arange(2, k+2))).float()
-        # .cuda()
+    f = torch.from_numpy(np.log2(np.arange(2, k+2))).float().cuda()
     dcg = (r[:, :k]/f).sum(1)
     dcg_max = (torch.sort(r, dim=1, descending=True)[0][:, :k]/f).sum(1)
     ndcg = dcg/dcg_max
@@ -106,7 +105,7 @@ def compute_ndcg_k(pred_items, test_items, test_indices, k):
 def eval_model(u_emb, i_emb, Rtr, Rte, k):
     """
     Evaluate the model
-    
+
     Arguments:
     ---------
     u_emb: User embeddings
@@ -114,7 +113,7 @@ def eval_model(u_emb, i_emb, Rtr, Rte, k):
     Rtr: Sparse matrix with the training interactions
     Rte: Sparse matrix with the testing interactions
     k : kth-order for metrics
-    
+
     Returns:
     --------
     result: Dictionary with lists correponding to the metrics at order k for k in Ks
@@ -124,32 +123,77 @@ def eval_model(u_emb, i_emb, Rtr, Rte, k):
     tr_splits = split_matrix(Rtr)
     te_splits = split_matrix(Rte)
 
-    recall_k, ndcg_k= [], []
+    recall_k, ndcg_k = [], []
     # compute results for split matrices
     for ue_f, tr_f, te_f in zip(ue_splits, tr_splits, te_splits):
-
         scores = torch.mm(ue_f, i_emb.t())
 
-        test_items = torch.from_numpy(te_f.todense()).float()
-            # .cuda()
-        non_train_items = torch.from_numpy(1-(tr_f.todense())).float()
-            # .cuda()
+        test_items = torch.from_numpy(te_f.todense()).float().cuda()
+        non_train_items = torch.from_numpy(1 - (tr_f.todense())).float().cuda()
         scores = scores * non_train_items
 
         _, test_indices = torch.topk(scores, dim=1, k=k)
         pred_items = torch.zeros_like(scores).float()
-        pred_items.scatter_(dim=1, index=test_indices, src=torch.ones_like(test_indices).float())
-                            # .cuda())
+        pred_items.scatter_(dim=1, index=test_indices, src=torch.tensor(1.0))
 
         topk_preds = torch.zeros_like(scores).float()
-        topk_preds.scatter_(dim=1, index=test_indices[:, :k], src=torch.ones_like(test_indices[:, :k]).float())
-                            # .cuda())
+        topk_preds.scatter_(dim=1, index=test_indices[:, :k], src=torch.tensor(1.0))
 
         TP = (test_items * topk_preds).sum(1)
-        rec = TP/test_items.sum(1)
+        rec = TP / test_items.sum(1)
         ndcg = compute_ndcg_k(pred_items, test_items, test_indices, k)
 
         recall_k.append(rec)
         ndcg_k.append(ndcg)
 
     return torch.cat(recall_k).mean(), torch.cat(ndcg_k).mean()
+
+
+
+#
+# def eval_model(u_emb, i_emb, Rtr, Rte, k):
+#     """
+#     Evaluate the model
+#
+#     Arguments:
+#     ---------
+#     u_emb: User embeddings
+#     i_emb: Item embeddings
+#     Rtr: Sparse matrix with the training interactions
+#     Rte: Sparse matrix with the testing interactions
+#     k : kth-order for metrics
+#
+#     Returns:
+#     --------
+#     result: Dictionary with lists correponding to the metrics at order k for k in Ks
+#     """
+#     # split matrices
+#     ue_splits = split_matrix(u_emb)
+#     tr_splits = split_matrix(Rtr)
+#     te_splits = split_matrix(Rte)
+#
+#     recall_k, ndcg_k= [], []
+#     # compute results for split matrices
+#     for ue_f, tr_f, te_f in zip(ue_splits, tr_splits, te_splits):
+#
+#         scores = torch.mm(ue_f, i_emb.t())
+#
+#         test_items = torch.from_numpy(te_f.todense()).float().cuda()
+#         non_train_items = torch.from_numpy(1-(tr_f.todense())).float().cuda()
+#         scores = scores * non_train_items
+#
+#         _, test_indices = torch.topk(scores, dim=1, k=k)
+#         pred_items = torch.zeros_like(scores).float()
+#         pred_items.scatter_(dim=1, index=test_indices, src=torch.ones_like(test_indices).float().cuda())
+#
+#         topk_preds = torch.zeros_like(scores).float()
+#         topk_preds.scatter_(dim=1, index=test_indices[:, :k], src=torch.ones_like(test_indices[:, :k]).float().cuda())
+#
+#         TP = (test_items * topk_preds).sum(1)
+#         rec = TP/test_items.sum(1)
+#         ndcg = compute_ndcg_k(pred_items, test_items, test_indices, k)
+#
+#         recall_k.append(rec)
+#         ndcg_k.append(ndcg)
+#
+#     return torch.cat(recall_k).mean(), torch.cat(ndcg_k).mean()
