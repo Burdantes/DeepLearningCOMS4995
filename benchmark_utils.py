@@ -127,6 +127,7 @@ def train_svd(params, data):
 
 def predict_svd(model, test):
     with Timer() as t:
+        # print(model)
         preds = predict(
             model,
             test,
@@ -134,6 +135,7 @@ def predict_svd(model, test):
             itemcol=DEFAULT_ITEM_COL,
             predcol=DEFAULT_PREDICTION_COL,
         )
+    # print('SVD',preds)
     return preds, t
 
 
@@ -190,6 +192,7 @@ def predict_fastai(model, test):
             item_col=DEFAULT_ITEM_COL,
             prediction_col=DEFAULT_PREDICTION_COL,
         )
+    # print('Fastai',preds)
     return preds, t
 
 
@@ -310,6 +313,7 @@ def recommend_k_sar(model, test, train, top_k=DEFAULT_K, remove_seen=True):
         topk_scores = model.recommend_k_items(
             test, top_k=top_k, remove_seen=remove_seen
         )
+    # print('SAR:', topk_scores)
     return topk_scores, t
 
 
