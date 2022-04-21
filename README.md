@@ -17,7 +17,7 @@ $ source ./DeepLearningCOMS4995/bin/activate
 All the code can be found in the ``FinalNotebook.ipynb`` file and that script has been documented to be self-sufficient. 
 
 ## Acknowledgements
-We owe a lot to the authors of the following libraries and notebooks:
+We owe a lot to the authors of the following libraries, notebooks and tutorial (list still needs to be completed):
 - [TensorFlow](https://www.tensorflow.org/)
 - [Keras](https://keras.io/)
 - [Microsoft recommenders](https://github.com/microsoft/recommenders/)
