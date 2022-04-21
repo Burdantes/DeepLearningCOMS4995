@@ -226,27 +226,71 @@ def recommend_k_fastai(model, test, train, top_k=DEFAULT_K, remove_seen=True):
         )
     return topk_scores, t
 
+from recommenders.datasets import movielens
+from recommenders.datasets.python_splitters import python_chrono_split, python_stratified_split
 
-def prepare_training_ncf(train_file, leave_one_out_test_file):
-    return NCFDataset(train_file=train_file, test_file=leave_one_out_test_file, seed=SEED, overwrite_test_file_full=True)
+def prepare_training_ncf():
+    # Select MovieLens data size: 100k, 1m, 10m, or 20m
+    MOVIELENS_DATA_SIZE = '100k'
+
+
+    SEED = 42
+    df = movielens.load_pandas_df(
+        size=MOVIELENS_DATA_SIZE,
+        header=["userID", "itemID", "rating", "timestamp"]
+    )
+
+    train, test = python_chrono_split(df, 0.75)
+    test = test[test["userID"].isin(train["userID"].unique())]
+    test = test[test["itemID"].isin(train["itemID"].unique())]
+
+
+    train_file = "./train.csv"
+    test_file = "./test.csv"
+    train.to_csv(train_file, index=False)
+    test.to_csv(test_file, index=False)
+
+    return NCFDataset(train_file=train_file, test_file=test_file, seed=SEED)
 
 
 def train_ncf(params, data):
-    model = NCF(n_users=data.n_users, n_items=data.n_items, **params)
+    EPOCHS = 50
+    BATCH_SIZE = 256
+    model = NCF(
+        n_users=data.n_users,
+        n_items=data.n_items,
+        model_type="NeuMF",
+        n_factors=4,
+        layer_sizes=[16, 8, 4],
+        n_epochs=EPOCHS,
+        batch_size=BATCH_SIZE,
+        learning_rate=1e-3,
+        verbose=10,
+        seed=SEED
+    )
     with Timer() as t:
         model.fit(data)
+    print("Took {} seconds for training.".format(t))
     return model, t
 
 
 def recommend_k_ncf(model, test, train, top_k=DEFAULT_K, remove_seen=True):
     with Timer() as t:
         users, items, preds = [], [], []
-        item = list(train[DEFAULT_ITEM_COL].unique())
-        for user in train[DEFAULT_USER_COL].unique():
+        train = pd.read_csv('train.csv')
+        item = list(train.itemID.unique())
+        for user in train.userID.unique():
             user = [user] * len(item)
+            # try:
+            preds.extend(list(model.predict(user, item, is_list=True)))
             users.extend(user)
             items.extend(item)
-            preds.extend(list(model.predict(user, item, is_list=True)))
+            # except:
+            #     continue
+        all_predictions = pd.DataFrame(data={"userID": users, "itemID": items, "prediction": preds})
+
+        merged = pd.merge(train, all_predictions, on=["userID", "itemID"], how="outer")
+        # all_predictions = merged[merged.rating.isnull()].drop('rating', axis=1)
         topk_scores = pd.DataFrame(
             data={
                 DEFAULT_USER_COL: users,
@@ -254,13 +298,17 @@ def recommend_k_ncf(model, test, train, top_k=DEFAULT_K, remove_seen=True):
                 DEFAULT_PREDICTION_COL: preds,
             }
         )
-        merged = pd.merge(
-            train, topk_scores, on=[DEFAULT_USER_COL, DEFAULT_ITEM_COL], how="outer"
-        )
-        topk_scores = merged[merged[DEFAULT_RATING_COL].isnull()].drop(
-            DEFAULT_RATING_COL, axis=1
-        )
-    return topk_scores, t
+        top_k_predictions = []
+        for identified, all_predictions_user_k in all_predictions.groupby('userID'):
+            top_k_predictions.append(all_predictions_user_k.sort_values(by='prediction', ascending=False)[:top_k])
+        top_k_predictions = pd.concat(top_k_predictions)
+        # merged = pd.merge(
+        #     train, topk_scores, on=[DEFAULT_USER_COL, DEFAULT_ITEM_COL], how="outer"
+        # )
+        # topk_scores = merged[merged[DEFAULT_RATING_COL].isnull()].drop(
+        #     DEFAULT_RATING_COL, axis=1
+        # )
+    return top_k_predictions, t
 
 
 def prepare_training_cornac(train, test):
@@ -318,7 +366,22 @@ def recommend_k_sar(model, test, train, top_k=DEFAULT_K, remove_seen=True):
 
 
 def prepare_training_lightgcn(train, test):
-    return ImplicitCF(train=train, test=test)
+    # Unique items in the dataset
+
+    return train, test
+def prepare_training_deepweb(train, test):
+    data = pd.concat([train, test])
+    items = data.drop_duplicates(DEFAULT_ITEM_COL)[[DEFAULT_ITEM_COL, DEFAULT_ITEM_COL]].reset_index(drop=True)
+    item_feat_shape = len(items[DEFAULT_ITEM_COL][0])
+    # Unique users in the dataset
+    users = data.drop_duplicates(DEFAULT_USER_COL)[[DEFAULT_USER_COL]].reset_index(drop=True)
+
+    print("Total {} items and {} users in the dataset".format(len(items), len(users)))
+
+
+
+# def train_deepweb(params,data):
+
 
 
 def train_lightgcn(params, data):

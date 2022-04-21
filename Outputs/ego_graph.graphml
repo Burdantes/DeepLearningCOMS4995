@@ -1,0 +1,449 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="edge" attr.name="weight" attr.type="float" />
+  <graph edgedefault="undirected">
+    <node id="u170" />
+    <node id="u27" />
+    <node id="u152" />
+    <node id="u164" />
+    <node id="u18" />
+    <node id="i264" />
+    <node id="u62" />
+    <node id="u58" />
+    <node id="u121" />
+    <node id="u5" />
+    <node id="i178" />
+    <node id="u192" />
+    <node id="u42" />
+    <node id="u47" />
+    <node id="u206" />
+    <node id="u57" />
+    <node id="u3" />
+    <node id="u245" />
+    <node id="u85" />
+    <node id="u71" />
+    <node id="u104" />
+    <node id="u236" />
+    <node id="u249" />
+    <node id="u155" />
+    <node id="i194" />
+    <node id="u93" />
+    <node id="u178" />
+    <node id="u120" />
+    <node id="u74" />
+    <node id="u40" />
+    <node id="u53" />
+    <node id="u68" />
+    <node id="u119" />
+    <node id="u116" />
+    <node id="u72" />
+    <node id="u15" />
+    <node id="u79" />
+    <node id="u188" />
+    <node id="u118" />
+    <node id="u227" />
+    <node id="u45" />
+    <node id="u138" />
+    <node id="i86" />
+    <node id="u60" />
+    <node id="u63" />
+    <node id="u128" />
+    <node id="u203" />
+    <node id="u23" />
+    <node id="u29" />
+    <node id="u49" />
+    <node id="u125" />
+    <node id="u33" />
+    <node id="u175" />
+    <node id="u107" />
+    <node id="u131" />
+    <node id="u194" />
+    <node id="u70" />
+    <node id="u204" />
+    <node id="i17" />
+    <node id="u141" />
+    <node id="u73" />
+    <node id="u222" />
+    <node id="u64" />
+    <node id="u78" />
+    <node id="u28" />
+    <node id="u82" />
+    <node id="u69" />
+    <node id="u228" />
+    <node id="u31" />
+    <node id="u84" />
+    <node id="u235" />
+    <node id="u193" />
+    <node id="u102" />
+    <node id="u244" />
+    <node id="u136" />
+    <node id="u181" />
+    <node id="u127" />
+    <node id="u186" />
+    <node id="i278" />
+    <node id="u83" />
+    <node id="i231" />
+    <node id="i201" />
+    <node id="u50" />
+    <node id="u137" />
+    <node id="u171" />
+    <node id="i398" />
+    <node id="u76" />
+    <node id="u88" />
+    <node id="u44" />
+    <node id="u169" />
+    <node id="u180" />
+    <node id="u7" />
+    <node id="u99" />
+    <node id="u97" />
+    <node id="u159" />
+    <node id="u17" />
+    <node id="u98" />
+    <node id="i268" />
+    <node id="u176" />
+    <node id="u6" />
+    <node id="u210" />
+    <edge source="u170" target="i201">
+      <data key="d0">7.5</data>
+    </edge>
+    <edge source="u170" target="i178">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="u27" target="i264">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="u152" target="i268">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u164" target="i86">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u18" target="i201">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="u18" target="i264">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="i264" target="u5">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="i264" target="u28">
+      <data key="d0">5.5</data>
+    </edge>
+    <edge source="i264" target="u31">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="i264" target="u33">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="i264" target="u50">
+      <data key="d0">8.5</data>
+    </edge>
+    <edge source="i264" target="u62">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="i264" target="u68">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="i264" target="u85">
+      <data key="d0">5.5</data>
+    </edge>
+    <edge source="i264" target="u99">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="i264" target="u118">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="i264" target="u176">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="i264" target="u181">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u62" target="i194">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="u62" target="i278">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u58" target="i17">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u121" target="i278">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="u5" target="i194">
+      <data key="d0">7.5</data>
+    </edge>
+    <edge source="u5" target="i17">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="u5" target="i201">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u5" target="i231">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u5" target="i398">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u5" target="i178">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="u5" target="i86">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="u5" target="i278">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="u5" target="i268">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="i178" target="u70">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="i178" target="u72">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="i178" target="u188">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="i178" target="u203">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="i178" target="u206">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="i178" target="u244">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="i178" target="u249">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="u192" target="i231">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u42" target="i231">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="u47" target="i86">
+      <data key="d0">8.5</data>
+    </edge>
+    <edge source="u47" target="i201">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u57" target="i231">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="u3" target="i398">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="u245" target="i398">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u85" target="i278">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="u71" target="i268">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="u104" target="i268">
+      <data key="d0">7.5</data>
+    </edge>
+    <edge source="u236" target="i398">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u155" target="i231">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="i194" target="u53">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="i194" target="u93">
+      <data key="d0">8.5</data>
+    </edge>
+    <edge source="i194" target="u169">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="i194" target="u210">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="i194" target="u228">
+      <data key="d0">5.5</data>
+    </edge>
+    <edge source="u178" target="i201">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u120" target="i231">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u74" target="i268">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="u40" target="i86">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u119" target="i278">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="u116" target="i231">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u15" target="i268">
+      <data key="d0">7.5</data>
+    </edge>
+    <edge source="u79" target="i231">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="u79" target="i17">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="u79" target="i268">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="u227" target="i86">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="u45" target="i268">
+      <data key="d0">8.5</data>
+    </edge>
+    <edge source="u45" target="i201">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="u138" target="i398">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="i86" target="u49">
+      <data key="d0">7.5</data>
+    </edge>
+    <edge source="i86" target="u186">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="i86" target="u204">
+      <data key="d0">7.5</data>
+    </edge>
+    <edge source="u60" target="i17">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="u60" target="i231">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="u63" target="i17">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u128" target="i231">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="u23" target="i278">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u29" target="i268">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="u125" target="i231">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="u175" target="i201">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="u107" target="i201">
+      <data key="d0">5.5</data>
+    </edge>
+    <edge source="u131" target="i268">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u194" target="i201">
+      <data key="d0">7.5</data>
+    </edge>
+    <edge source="u204" target="i398">
+      <data key="d0">7.5</data>
+    </edge>
+    <edge source="u141" target="i268">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u73" target="i201">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u222" target="i231">
+      <data key="d0">5.5</data>
+    </edge>
+    <edge source="u64" target="i268">
+      <data key="d0">7.5</data>
+    </edge>
+    <edge source="u78" target="i268">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="u82" target="i278">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u69" target="i278">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="u84" target="i231">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u235" target="i398">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="u193" target="i278">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="u102" target="i278">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="u136" target="i278">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u127" target="i231">
+      <data key="d0">5.5</data>
+    </edge>
+    <edge source="u127" target="i268">
+      <data key="d0">5.5</data>
+    </edge>
+    <edge source="i278" target="u6">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="i278" target="u88">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="i278" target="u97">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="i278" target="u137">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="i278" target="u159">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="i278" target="u176">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u83" target="i231">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="i231" target="u76">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="i201" target="u7">
+      <data key="d0">7.5</data>
+    </edge>
+    <edge source="i201" target="u44">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="i201" target="u98">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="i201" target="u171">
+      <data key="d0">6.5</data>
+    </edge>
+    <edge source="u50" target="i398">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="u180" target="i268">
+      <data key="d0">5.5</data>
+    </edge>
+    <edge source="u17" target="i268">
+      <data key="d0">6.0</data>
+    </edge>
+  </graph>
+</graphml>
