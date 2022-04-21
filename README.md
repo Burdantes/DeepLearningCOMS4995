@@ -16,3 +16,12 @@ $ source ./DeepLearningCOMS4995/bin/activate
 ```
 All the code can be found in the ``FinalNotebook.ipynb`` file and that script has been documented to be self-sufficient. 
 
+## Acknowledgements
+We owe a lot to the authors of the following libraries and notebooks:
+- [TensorFlow](https://www.tensorflow.org/)
+- [Keras](https://keras.io/)
+- [Microsoft recommenders](https://github.com/microsoft/recommenders/)
+- [Tsinghua University GNN recommender systems](https://github.com/tsinghua-fib-lab/GNN-Recommender-Systems)
+- [Awesome-Rec](https://github.com/RUCAIBox/Awesome-RSPapers)
+- [KDD tutorial on Recommender Systems](https://sites.google.com/view/kdd20-marketplace-autorecsys/)
+- 
